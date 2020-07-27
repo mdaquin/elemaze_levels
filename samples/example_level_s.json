@@ -1,0 +1,10 @@
+{
+    "chest_position": {"x": 0, "y": 1},
+    "waterman_position": {"x": 1, "y": 1},
+    "earthman_position": {"x":0, "y": 0},
+    "fireman_position": {"x": -1, "y": -1},
+    "airman_position": {"x":-1, "y":-1},
+    "matrix":[[{"color": "e", "ydirs": [], "xdirs":[1]},{"color": "f", "ydirs": [], "xdirs":[1,-1]},
+	       {"color": "f", "ydirs": [1], "xdirs":[-1]}],
+	      [{"color": "a", "ydirs": [], "xdirs":[1]},{"color": "w", "ydirs": [], "xdirs":[1,-1]},{"color": "f", "ydirs": [-1], "xdirs":[-1]}]]
+}

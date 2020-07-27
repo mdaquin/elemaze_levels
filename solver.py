@@ -14,23 +14,26 @@ def contains(l,c):
 
 def scontains(l,s):
     for ss in l:
-        if s["waterman_position"]["x"]!=ss["waterman_position"]["x"]: break
-        if s["waterman_position"]["y"]!=ss["waterman_position"]["y"]: break
-        if s["airman_position"]["x"]!=ss["airman_position"]["x"]: break
-        if s["airman_position"]["y"]!=ss["airman_position"]["y"]: break
-        if s["fireman_position"]["x"]!=ss["fireman_position"]["x"]: break
-        if s["fireman_position"]["y"]!=ss["fireman_position"]["y"]: break
-        if s["earthman_position"]["x"]!=ss["earthman_position"]["x"]: break
-        if s["earthman_position"]["y"]!=ss["earthman_position"]["y"]: break                   
-        same = true
+        if s["waterman_position"]["x"]!=ss["waterman_position"]["x"]: continue
+        if s["waterman_position"]["y"]!=ss["waterman_position"]["y"]: continue
+        if s["airman_position"]["x"]!=ss["airman_position"]["x"]: continue
+        if s["airman_position"]["y"]!=ss["airman_position"]["y"]: continue
+        if s["fireman_position"]["x"]!=ss["fireman_position"]["x"]: continue
+        if s["fireman_position"]["y"]!=ss["fireman_position"]["y"]: continue
+        if s["earthman_position"]["x"]!=ss["earthman_position"]["x"]: continue
+        if s["earthman_position"]["y"]!=ss["earthman_position"]["y"]: continue                   
+        if ss["matrix"] == [] and s["matrix"] == []: return True
+        elif ss["matrix"] == []: continue
+        elif s["matrix"] == []: continue
+        same = True
         for i in range(0, len(ss["matrix"])):
             for j in range(0, len(ss["matrix"][i])):
                 if ss["matrix"][i][j]["color"] != s["matrix"][i][j]["color"]:
-                    same = false
+                    same = False
                     break
             if not same: break
-        if same: return true
-    return false
+        if same: return True
+    return False
 
 # implement best first search
 # as in the game
@@ -40,6 +43,7 @@ def path(state, guy, dest):
     inspected = []
     while len(toinspect)!=0:
         item = toinspect.pop(0)
+        inspected.append(item)
         if item["x"]==dest["x"] and item["y"]==dest["y"]:
             path = []
             while "parent" in item:
@@ -53,7 +57,7 @@ def path(state, guy, dest):
         for yd in state["matrix"][item["y"]][item["x"]]["ydirs"]:
             nitem = {"x": item["x"], "y":item["y"]+yd, "parent": item}
             if not contains(toinspect, nitem) and not contains(inspected, nitem):
-                toinspect.append(nitem)
+                toinspect.append(nitem)                
     return {}
 
 
@@ -63,36 +67,45 @@ def runpath(state, guy, path):
         nstate[guy+"_position"] = s
         if guy=="waterman":
             if nstate["matrix"][s["y"]][s["x"]]["color"] == "a":
-                nstate["state"] = "gameover"                
+                nstate["state"] = "gameover"
+                nstate["matrix"] = []
                 return nstate
             if nstate["matrix"][s["y"]][s["x"]]["color"] == "f":
                 nstate["matrix"][s["y"]][s["x"]]["color"] = "w"
                 if nstate["fireman_position"]["x"] == s["x"] and nstate["fireman_position"]["y"] == s["y"]:
                     nstate["state"] = "gameover"
+                    nstate["matrix"] = []
                     return nstate                                    
         if guy=="earthman":
             if nstate["matrix"][s["y"]][s["x"]]["color"] == "f":
                 nstate["state"] = "gameover"
+                nstate["matrix"] = []
                 return nstate
             if nstate["matrix"][s["y"]][s["x"]]["color"] == "w":
                 nstate["matrix"][s["y"]][s["x"]]["color"] = "e"
                 if nstate["airman_position"]["x"] == s["x"] and nstate["airman_position"]["y"] == s["y"]:
                     nstate["state"] = "gameover"
+                    nstate["matrix"] = []
                     return nstate                                    
         if guy=="fireman":
             if nstate["matrix"][s["y"]][s["x"]]["color"] == "w":
                 nstate["state"] = "gameover"
+                nstate["matrix"] = []
                 return nstate
             if nstate["matrix"][s["y"]][s["x"]]["color"] == "e":
                 nstate["matrix"][s["y"]][s["x"]]["color"] = "f"
                 if nstate["earthman_position"]["x"] == s["x"] and nstate["earthman_position"]["y"] == s["y"]:
                     nstate["state"] = "gameover"
+                    nstate["matrix"] = []
                     return nstate                    
         if guy=="airman":
             if nstate["matrix"][s["y"]][s["x"]]["color"] == "e":
                 nstate["state"] = "gameover"
+                nstate["matrix"] = []
                 return nstate
-        display(nstate)
+        if s["x"] == nstate["chest_position"]["x"] and s["y"] == nstate["chest_position"]["y"]:
+            nstate["state"] = "win"
+            return nstate
     return nstate
             
 
@@ -136,34 +149,57 @@ def solve(root):
     toinspect = [root]
     inspected = []
     while len(toinspect) != 0:
-        print(str(len(toinspect))+"/"+str(len(inspected)))
-        state = toinspect.pop(0)
+        # print(str(len(toinspect))+"/"+str(len(inspected)))
+        state = toinspect.pop(0)        
+        inspected.append(state)
         if "state" in state and state["state"] == "gameover":
-            break
+            continue
         elif "state" in state and state["state"] == "win":
+            print("solved inspecting "+str(len(inspected))+" states")
             return state
         for i in range(0, len(state["matrix"])):
             for j in range(0, len(state["matrix"][i])):
                 if not (state["fireman_position"]["y"] == i and state["fireman_position"]["x"] == j) and not (state["earthman_position"]["y"] == i and state["earthman_position"]["x"] == j) and not (state["waterman_position"]["y"] == i and state["waterman_position"]["x"] == j) and not (state["airman_position"]["y"] == i and state["airman_position"]["x"] == j):
                     if state["airman_position"]["x"] != -1:
-                        nstate = runpath(state, "airman", path(state, "airman", {"x": i, "y": j}))
+                        p = path(state, "airman", {"x": j, "y": i})                        
+                        nstate = runpath(state, "airman", p)
+                        nstate["parent"] = state
+                        # display(nstate)
                         if not scontains(toinspect, nstate) and not scontains(inspected, nstate):
                             toinspect.append(nstate)
                     if state["waterman_position"]["x"] != -1:
-                        nstate = runpath(state, "airman", path(state, "airman", {"x": i, "y": j}))
+                        p = path(state, "waterman", {"x": j, "y": i})
+                        nstate = runpath(state, "waterman", p)
+                        nstate["parent"] = state                        
+                        # display(nstate)
                         if not scontains(toinspect, nstate) and not scontains(inspected, nstate):
                             toinspect.append(nstate)
                     if state["fireman_position"]["x"] != -1:
-                        nstate = runpath(state, "airman", path(state, "airman", {"x": i, "y": j}))
+                        p=path(state, "fireman", {"x": j, "y": i})
+                        nstate = runpath(state, "fireman", p)
+                        nstate["parent"] = state                        
+                        # display(nstate)
                         if not scontains(toinspect, nstate) and not scontains(inspected, nstate):
                             toinspect.append(nstate)
                     if state["earthman_position"]["x"] != -1:
-                        nstate = runpath(state, "airman", path(state, "airman", {"x": i, "y": j}))
+                        p = path(state, "earthman", {"x": j, "y": i})
+                        nstate = runpath(state, "earthman", p)
+                        nstate["parent"] = state                        
+                        # display(nstate)
                         if not scontains(toinspect, nstate) and not scontains(inspected, nstate):
                             toinspect.append(nstate)
     return {}
                        
-# display(level)
+display(level)
 
-solve(level)
+solution = solve(level)
+asol = [solution]
+while "parent" in solution:
+    asol.insert(0,solution["parent"])
+    solution=solution["parent"]
+
+print("===== SOLUTION ("+str(len(asol))+" steps) =====")
+    
+for s in asol:
+    display(s)
 

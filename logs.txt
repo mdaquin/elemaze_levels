@@ -1,0 +1,1151 @@
+_______________
+|aCa  wWw  fff|
+|aCa  wWw  fff|
+|aCa  wWw  fff|
+__________     
+__________     
+|eEe  fff  fff|
+|eEe  fff  fff|
+|eEe  fff  fff|
+_______________
+
+1/0
+_______________
+|aCa  wWw  fff|
+|aCa  wWw  fff|
+|aCa  wWw  fff|
+__________     
+__________     
+|eEe  fff  fff|
+|eEe  fff  fff|
+|eEe  fff  fff|
+_______________
+
+5/1
+_______________
+|aCa  www  www|
+|aCa  www  www|
+|aCa  www  www|
+__________     
+__________     
+|eEe  wWw  www|
+|eEe  wWw  www|
+|eEe  wWw  www|
+_______________
+
+12/2
+_______________
+|aCa  wWw  fff|
+|aCa  wWw  fff|
+|aCa  wWw  fff|
+__________     
+__________     
+|eee  fEf  fff|
+|eee  fEf  fff|
+|eee  fEf  fff|
+_______________
+
+11/3
+_______________
+|aCa  www  www|
+|aCa  www  www|
+|aCa  www  www|
+__________     
+__________     
+|eEe  fff  wWw|
+|eEe  fff  wWw|
+|eEe  fff  wWw|
+_______________
+
+14/4
+_______________
+|aWa  www  fff|
+|aWa  www  fff|
+|aWa  www  fff|
+__________     
+__________     
+|eEe  fff  fff|
+|eEe  fff  fff|
+|eEe  fff  fff|
+_______________
+
+13/5
+_______________
+|aCa  www  wWw|
+|aCa  www  wWw|
+|aCa  www  wWw|
+__________     
+__________     
+|eEe  fff  fff|
+|eEe  fff  fff|
+|eEe  fff  fff|
+_______________
+
+15/6
+_______________
+|aCa  www  www|
+|aCa  www  www|
+|aCa  www  www|
+__________     
+__________     
+|eEe  www  wWw|
+|eEe  www  wWw|
+|eEe  www  wWw|
+_______________
+
+18/7
+_______________
+|aCa  www  www|
+|aCa  www  www|
+|aCa  www  www|
+__________     
+__________     
+|eee  eWe  eEe|
+|eee  eWe  eEe|
+|eee  eWe  eEe|
+_______________
+
+22/8
+_______________
+|aWa  www  www|
+|aWa  www  www|
+|aWa  www  www|
+__________     
+__________     
+|eEe  www  www|
+|eEe  www  www|
+|eEe  www  www|
+_______________
+
+21/9
+_______________
+|aEa  eee  eee|
+|aEa  eee  eee|
+|aEa  eee  eee|
+__________     
+__________     
+|eee  eWe  eee|
+|eee  eWe  eee|
+|eee  eWe  eee|
+_______________
+
+26/10
+_______________
+|aCa  wWw  www|
+|aCa  wWw  www|
+|aCa  wWw  www|
+__________     
+__________     
+|eEe  www  www|
+|eEe  www  www|
+|eEe  www  www|
+_______________
+
+27/11
+_______________
+|aCa  eEe  eee|
+|aCa  eEe  eee|
+|aCa  eEe  eee|
+__________     
+__________     
+|eee  eWe  eee|
+|eee  eWe  eee|
+|eee  eWe  eee|
+_______________
+
+29/12
+_______________
+|aCa  www  wWw|
+|aCa  www  wWw|
+|aCa  www  wWw|
+__________     
+__________     
+|eEe  www  www|
+|eEe  www  www|
+|eEe  www  www|
+_______________
+
+29/13
+_______________
+|aCa  www  eEe|
+|aCa  www  eEe|
+|aCa  www  eEe|
+__________     
+__________     
+|eee  eWe  eee|
+|eee  eWe  eee|
+|eee  eWe  eee|
+_______________
+
+32/14
+_______________
+|aCa  www  www|
+|aCa  www  www|
+|aCa  www  www|
+__________     
+__________     
+|eee  fEf  wWw|
+|eee  fEf  wWw|
+|eee  fEf  wWw|
+_______________
+
+31/15
+_______________
+|aWa  www  www|
+|aWa  www  www|
+|aWa  www  www|
+__________     
+__________     
+|eEe  fff  www|
+|eEe  fff  www|
+|eEe  fff  www|
+_______________
+
+30/16
+_______________
+|aCa  wWw  www|
+|aCa  wWw  www|
+|aCa  wWw  www|
+__________     
+__________     
+|eEe  fff  www|
+|eEe  fff  www|
+|eEe  fff  www|
+_______________
+
+30/17
+_______________
+|aCa  www  wWw|
+|aCa  www  wWw|
+|aCa  www  wWw|
+__________     
+__________     
+|eEe  fff  www|
+|eEe  fff  www|
+|eEe  fff  www|
+_______________
+
+30/18
+_______________
+|aCa  www  wWw|
+|aCa  www  wWw|
+|aCa  www  wWw|
+__________     
+__________     
+|eee  fEf  fff|
+|eee  fEf  fff|
+|eee  fEf  fff|
+_______________
+
+29/19
+_______________
+|aWa  www  www|
+|aWa  www  www|
+|aWa  www  www|
+__________     
+__________     
+|eEe  fff  fff|
+|eEe  fff  fff|
+|eEe  fff  fff|
+_______________
+
+28/20
+_______________
+|aCa  wWw  www|
+|aCa  wWw  www|
+|aCa  wWw  www|
+__________     
+__________     
+|eEe  fff  fff|
+|eEe  fff  fff|
+|eEe  fff  fff|
+_______________
+
+28/21
+_______________
+|aCa  www  www|
+|aCa  www  www|
+|aCa  www  www|
+__________     
+__________     
+|eee  eEe  wWw|
+|eee  eEe  wWw|
+|eee  eEe  wWw|
+_______________
+
+30/22
+_______________
+|aEa  eee  eee|
+|aEa  eee  eee|
+|aEa  eee  eee|
+__________     
+__________     
+|eee  eee  eWe|
+|eee  eee  eWe|
+|eee  eee  eWe|
+_______________
+
+32/23
+_______________
+|aCa  eEe  eee|
+|aCa  eEe  eee|
+|aCa  eEe  eee|
+__________     
+__________     
+|eee  eee  eWe|
+|eee  eee  eWe|
+|eee  eee  eWe|
+_______________
+
+31/24
+_______________
+|aCa  www  eEe|
+|aCa  www  eEe|
+|aCa  www  eEe|
+__________     
+__________     
+|eee  eee  eWe|
+|eee  eee  eWe|
+|eee  eee  eWe|
+_______________
+
+32/25
+_______________
+|aCa  www  www|
+|aCa  www  www|
+|aCa  www  www|
+__________     
+__________     
+|eWe  eee  eEe|
+|eWe  eee  eEe|
+|eWe  eee  eEe|
+_______________
+
+32/26
+_______________
+|aCa  www  www|
+|aCa  www  www|
+|aCa  www  www|
+__________     
+__________     
+|eEe  eWe  eee|
+|eEe  eWe  eee|
+|eEe  eWe  eee|
+_______________
+
+35/27
+_______________
+|aWa  www  www|
+|aWa  www  www|
+|aWa  www  www|
+__________     
+__________     
+|eee  eee  eEe|
+|eee  eee  eEe|
+|eee  eee  eEe|
+_______________
+
+34/28
+_______________
+|aCa  wWw  www|
+|aCa  wWw  www|
+|aCa  wWw  www|
+__________     
+__________     
+|eee  eee  eEe|
+|eee  eee  eEe|
+|eee  eee  eEe|
+_______________
+
+34/29
+_______________
+|aCa  www  wWw|
+|aCa  www  wWw|
+|aCa  www  wWw|
+__________     
+__________     
+|eee  eee  eEe|
+|eee  eee  eEe|
+|eee  eee  eEe|
+_______________
+
+34/30
+_______________
+|aEa  eee  eee|
+|aEa  eee  eee|
+|aEa  eee  eee|
+__________     
+__________     
+|eWe  eee  eee|
+|eWe  eee  eee|
+|eWe  eee  eee|
+_______________
+
+36/31
+_______________
+|aCa  eee  eee|
+|aCa  eee  eee|
+|aCa  eee  eee|
+__________     
+__________     
+|eEe  eWe  eee|
+|eEe  eWe  eee|
+|eEe  eWe  eee|
+_______________
+
+38/32
+_______________
+|aCa  eee  eee|
+|aCa  eee  eee|
+|aCa  eee  eee|
+__________     
+__________     
+|eee  eWe  eEe|
+|eee  eWe  eEe|
+|eee  eWe  eEe|
+_______________
+
+40/33
+_______________
+|aEa  eWe  eee|
+|aEa  eWe  eee|
+|aEa  eWe  eee|
+__________     
+__________     
+|eee  eee  eee|
+|eee  eee  eee|
+|eee  eee  eee|
+_______________
+
+41/34
+_______________
+|aEa  eee  eWe|
+|aEa  eee  eWe|
+|aEa  eee  eWe|
+__________     
+__________     
+|eee  eee  eee|
+|eee  eee  eee|
+|eee  eee  eee|
+_______________
+
+41/35
+_______________
+|aCa  eee  eEe|
+|aCa  eee  eEe|
+|aCa  eee  eEe|
+__________     
+__________     
+|eee  eWe  eee|
+|eee  eWe  eee|
+|eee  eWe  eee|
+_______________
+
+41/36
+_______________
+|aCa  wWw  www|
+|aCa  wWw  www|
+|aCa  wWw  www|
+__________     
+__________     
+|eee  eEe  www|
+|eee  eEe  www|
+|eee  eEe  www|
+_______________
+
+41/37
+_______________
+|aCa  wWw  eEe|
+|aCa  wWw  eEe|
+|aCa  wWw  eEe|
+__________     
+__________     
+|eee  eee  eee|
+|eee  eee  eee|
+|eee  eee  eee|
+_______________
+
+43/38
+_______________
+|aCa  eEe  eee|
+|aCa  eEe  eee|
+|aCa  eEe  eee|
+__________     
+__________     
+|eWe  eee  eee|
+|eWe  eee  eee|
+|eWe  eee  eee|
+_______________
+
+42/39
+_______________
+|aWa  eEe  eee|
+|aWa  eEe  eee|
+|aWa  eEe  eee|
+__________     
+__________     
+|eee  eee  eee|
+|eee  eee  eee|
+|eee  eee  eee|
+_______________
+
+41/40
+_______________
+|aCa  eEe  eWe|
+|aCa  eEe  eWe|
+|aCa  eEe  eWe|
+__________     
+__________     
+|eee  eee  eee|
+|eee  eee  eee|
+|eee  eee  eee|
+_______________
+
+40/41
+_______________
+|aCa  www  wWw|
+|aCa  www  wWw|
+|aCa  www  wWw|
+__________     
+__________     
+|eee  eEe  www|
+|eee  eEe  www|
+|eee  eEe  www|
+_______________
+
+40/42
+_______________
+|aCa  www  eEe|
+|aCa  www  eEe|
+|aCa  www  eEe|
+__________     
+__________     
+|eWe  eee  eee|
+|eWe  eee  eee|
+|eWe  eee  eee|
+_______________
+
+41/43
+_______________
+|aCa  www  eee|
+|aCa  www  eee|
+|aCa  www  eee|
+__________     
+__________     
+|eEe  eWe  eee|
+|eEe  eWe  eee|
+|eEe  eWe  eee|
+_______________
+
+42/44
+_______________
+|aCa  www  eee|
+|aCa  www  eee|
+|aCa  www  eee|
+__________     
+__________     
+|eee  eWe  eEe|
+|eee  eWe  eEe|
+|eee  eWe  eEe|
+_______________
+
+43/45
+_______________
+|aWa  www  eEe|
+|aWa  www  eEe|
+|aWa  www  eEe|
+__________     
+__________     
+|eee  eee  eee|
+|eee  eee  eee|
+|eee  eee  eee|
+_______________
+
+42/46
+_______________
+|aCa  wWw  www|
+|aCa  wWw  www|
+|aCa  wWw  www|
+__________     
+__________     
+|eee  fEf  www|
+|eee  fEf  www|
+|eee  fEf  www|
+_______________
+
+41/47
+_______________
+|aCa  www  wWw|
+|aCa  www  wWw|
+|aCa  www  wWw|
+__________     
+__________     
+|eee  fEf  www|
+|eee  fEf  www|
+|eee  fEf  www|
+_______________
+
+40/48
+_______________
+|aCa  wWw  www|
+|aCa  wWw  www|
+|aCa  wWw  www|
+__________     
+__________     
+|eee  fEf  fff|
+|eee  fEf  fff|
+|eee  fEf  fff|
+_______________
+
+39/49
+_______________
+|aCa  www  www|
+|aCa  www  www|
+|aCa  www  www|
+__________     
+__________     
+|eWe  eEe  www|
+|eWe  eEe  www|
+|eWe  eEe  www|
+_______________
+
+38/50
+_______________
+|aCa  www  www|
+|aCa  www  www|
+|aCa  www  www|
+__________     
+__________     
+|eEe  eee  wWw|
+|eEe  eee  wWw|
+|eEe  eee  wWw|
+_______________
+
+39/51
+_______________
+|aWa  www  www|
+|aWa  www  www|
+|aWa  www  www|
+__________     
+__________     
+|eee  eEe  www|
+|eee  eEe  www|
+|eee  eEe  www|
+_______________
+
+38/52
+_______________
+|aCa  eee  eee|
+|aCa  eee  eee|
+|aCa  eee  eee|
+__________     
+__________     
+|eEe  eee  eWe|
+|eEe  eee  eWe|
+|eEe  eee  eWe|
+_______________
+
+37/53
+_______________
+|aCa  eee  eee|
+|aCa  eee  eee|
+|aCa  eee  eee|
+__________     
+__________     
+|eee  eEe  eWe|
+|eee  eEe  eWe|
+|eee  eEe  eWe|
+_______________
+
+37/54
+_______________
+|aCa  eee  eEe|
+|aCa  eee  eEe|
+|aCa  eee  eEe|
+__________     
+__________     
+|eee  eee  eWe|
+|eee  eee  eWe|
+|eee  eee  eWe|
+_______________
+
+36/55
+_______________
+|aCa  www  eee|
+|aCa  www  eee|
+|aCa  www  eee|
+__________     
+__________     
+|eEe  eee  eWe|
+|eEe  eee  eWe|
+|eEe  eee  eWe|
+_______________
+
+35/56
+_______________
+|aCa  www  eee|
+|aCa  www  eee|
+|aCa  www  eee|
+__________     
+__________     
+|eee  eEe  eWe|
+|eee  eEe  eWe|
+|eee  eEe  eWe|
+_______________
+
+36/57
+_______________
+|aCa  www  www|
+|aCa  www  www|
+|aCa  www  www|
+__________     
+__________     
+|eWe  eEe  eee|
+|eWe  eEe  eee|
+|eWe  eEe  eee|
+_______________
+
+37/58
+_______________
+|aCa  www  www|
+|aCa  www  www|
+|aCa  www  www|
+__________     
+__________     
+|eEe  eee  eWe|
+|eEe  eee  eWe|
+|eEe  eee  eWe|
+_______________
+
+36/59
+_______________
+|aWa  www  www|
+|aWa  www  www|
+|aWa  www  www|
+__________     
+__________     
+|eEe  eee  eee|
+|eEe  eee  eee|
+|eEe  eee  eee|
+_______________
+
+35/60
+_______________
+|aCa  wWw  www|
+|aCa  wWw  www|
+|aCa  wWw  www|
+__________     
+__________     
+|eEe  eee  eee|
+|eEe  eee  eee|
+|eEe  eee  eee|
+_______________
+
+34/61
+_______________
+|aCa  www  wWw|
+|aCa  www  wWw|
+|aCa  www  wWw|
+__________     
+__________     
+|eEe  eee  eee|
+|eEe  eee  eee|
+|eEe  eee  eee|
+_______________
+
+33/62
+_______________
+|aCa  wWw  www|
+|aCa  wWw  www|
+|aCa  wWw  www|
+__________     
+__________     
+|eee  eEe  eee|
+|eee  eEe  eee|
+|eee  eEe  eee|
+_______________
+
+32/63
+_______________
+|aCa  www  wWw|
+|aCa  www  wWw|
+|aCa  www  wWw|
+__________     
+__________     
+|eee  eEe  eee|
+|eee  eEe  eee|
+|eee  eEe  eee|
+_______________
+
+31/64
+_______________
+|aCa  eee  eee|
+|aCa  eee  eee|
+|aCa  eee  eee|
+__________     
+__________     
+|eWe  eEe  eee|
+|eWe  eEe  eee|
+|eWe  eEe  eee|
+_______________
+
+30/65
+_______________
+|aCa  eee  eee|
+|aCa  eee  eee|
+|aCa  eee  eee|
+__________     
+__________     
+|eWe  eee  eEe|
+|eWe  eee  eEe|
+|eWe  eee  eEe|
+_______________
+
+29/66
+_______________
+|aCa  eee  eEe|
+|aCa  eee  eEe|
+|aCa  eee  eEe|
+__________     
+__________     
+|eWe  eee  eee|
+|eWe  eee  eee|
+|eWe  eee  eee|
+_______________
+
+28/67
+_______________
+|aWa  eee  eee|
+|aWa  eee  eee|
+|aWa  eee  eee|
+__________     
+__________     
+|eEe  eee  eee|
+|eEe  eee  eee|
+|eEe  eee  eee|
+_______________
+
+27/68
+_______________
+|aCa  eWe  eee|
+|aCa  eWe  eee|
+|aCa  eWe  eee|
+__________     
+__________     
+|eEe  eee  eee|
+|eEe  eee  eee|
+|eEe  eee  eee|
+_______________
+
+26/69
+_______________
+|aCa  eee  eWe|
+|aCa  eee  eWe|
+|aCa  eee  eWe|
+__________     
+__________     
+|eEe  eee  eee|
+|eEe  eee  eee|
+|eEe  eee  eee|
+_______________
+
+25/70
+_______________
+|aWa  eee  eee|
+|aWa  eee  eee|
+|aWa  eee  eee|
+__________     
+__________     
+|eee  eee  eEe|
+|eee  eee  eEe|
+|eee  eee  eEe|
+_______________
+
+24/71
+_______________
+|aCa  eWe  eee|
+|aCa  eWe  eee|
+|aCa  eWe  eee|
+__________     
+__________     
+|eee  eee  eEe|
+|eee  eee  eEe|
+|eee  eee  eEe|
+_______________
+
+23/72
+_______________
+|aCa  eee  eWe|
+|aCa  eee  eWe|
+|aCa  eee  eWe|
+__________     
+__________     
+|eee  eee  eEe|
+|eee  eee  eEe|
+|eee  eee  eEe|
+_______________
+
+22/73
+_______________
+|aCa  eWe  eee|
+|aCa  eWe  eee|
+|aCa  eWe  eee|
+__________     
+__________     
+|eee  eEe  eee|
+|eee  eEe  eee|
+|eee  eEe  eee|
+_______________
+
+21/74
+_______________
+|aCa  eWe  eEe|
+|aCa  eWe  eEe|
+|aCa  eWe  eEe|
+__________     
+__________     
+|eee  eee  eee|
+|eee  eee  eee|
+|eee  eee  eee|
+_______________
+
+20/75
+_______________
+|aCa  eee  eWe|
+|aCa  eee  eWe|
+|aCa  eee  eWe|
+__________     
+__________     
+|eee  eEe  eee|
+|eee  eEe  eee|
+|eee  eEe  eee|
+_______________
+
+19/76
+_______________
+|aWa  eee  eEe|
+|aWa  eee  eEe|
+|aWa  eee  eEe|
+__________     
+__________     
+|eee  eee  eee|
+|eee  eee  eee|
+|eee  eee  eee|
+_______________
+
+18/77
+_______________
+|aCa  wWw  www|
+|aCa  wWw  www|
+|aCa  wWw  www|
+__________     
+__________     
+|eEe  eee  www|
+|eEe  eee  www|
+|eEe  eee  www|
+_______________
+
+17/78
+_______________
+|aCa  wWw  eee|
+|aCa  wWw  eee|
+|aCa  wWw  eee|
+__________     
+__________     
+|eEe  eee  eee|
+|eEe  eee  eee|
+|eEe  eee  eee|
+_______________
+
+16/79
+_______________
+|aCa  wWw  eee|
+|aCa  wWw  eee|
+|aCa  wWw  eee|
+__________     
+__________     
+|eee  eEe  eee|
+|eee  eEe  eee|
+|eee  eEe  eee|
+_______________
+
+15/80
+_______________
+|aCa  wWw  eee|
+|aCa  wWw  eee|
+|aCa  wWw  eee|
+__________     
+__________     
+|eee  eee  eEe|
+|eee  eee  eEe|
+|eee  eee  eEe|
+_______________
+
+14/81
+_______________
+|aCa  www  wWw|
+|aCa  www  wWw|
+|aCa  www  wWw|
+__________     
+__________     
+|eEe  eee  www|
+|eEe  eee  www|
+|eEe  eee  www|
+_______________
+
+13/82
+_______________
+|aCa  www  eee|
+|aCa  www  eee|
+|aCa  www  eee|
+__________     
+__________     
+|eWe  eEe  eee|
+|eWe  eEe  eee|
+|eWe  eEe  eee|
+_______________
+
+12/83
+_______________
+|aCa  www  eee|
+|aCa  www  eee|
+|aCa  www  eee|
+__________     
+__________     
+|eWe  eee  eEe|
+|eWe  eee  eEe|
+|eWe  eee  eEe|
+_______________
+
+11/84
+_______________
+|aWa  www  eee|
+|aWa  www  eee|
+|aWa  www  eee|
+__________     
+__________     
+|eEe  eee  eee|
+|eEe  eee  eee|
+|eEe  eee  eee|
+_______________
+
+10/85
+_______________
+|aCa  www  eWe|
+|aCa  www  eWe|
+|aCa  www  eWe|
+__________     
+__________     
+|eEe  eee  eee|
+|eEe  eee  eee|
+|eEe  eee  eee|
+_______________
+
+9/86
+_______________
+|aWa  www  eee|
+|aWa  www  eee|
+|aWa  www  eee|
+__________     
+__________     
+|eee  eee  eEe|
+|eee  eee  eEe|
+|eee  eee  eEe|
+_______________
+
+8/87
+_______________
+|aCa  www  eWe|
+|aCa  www  eWe|
+|aCa  www  eWe|
+__________     
+__________     
+|eee  eee  eEe|
+|eee  eee  eEe|
+|eee  eee  eEe|
+_______________
+
+7/88
+_______________
+|aCa  www  www|
+|aCa  www  www|
+|aCa  www  www|
+__________     
+__________     
+|eEe  eWe  www|
+|eEe  eWe  www|
+|eEe  eWe  www|
+_______________
+
+6/89
+_______________
+|aWa  www  www|
+|aWa  www  www|
+|aWa  www  www|
+__________     
+__________     
+|eEe  eee  www|
+|eEe  eee  www|
+|eEe  eee  www|
+_______________
+
+5/90
+_______________
+|aWa  eee  eee|
+|aWa  eee  eee|
+|aWa  eee  eee|
+__________     
+__________     
+|eee  eEe  eee|
+|eee  eEe  eee|
+|eee  eEe  eee|
+_______________
+
+4/91
+_______________
+|aWa  www  eee|
+|aWa  www  eee|
+|aWa  www  eee|
+__________     
+__________     
+|eee  eEe  eee|
+|eee  eEe  eee|
+|eee  eEe  eee|
+_______________
+
+3/92
+_______________
+|aCa  www  eWe|
+|aCa  www  eWe|
+|aCa  www  eWe|
+__________     
+__________     
+|eee  eEe  eee|
+|eee  eEe  eee|
+|eee  eEe  eee|
+_______________
+
+2/93
+_______________
+|aCa  www  www|
+|aCa  www  www|
+|aCa  www  www|
+__________     
+__________     
+|eee  eEe  eWe|
+|eee  eEe  eWe|
+|eee  eEe  eWe|
+_______________
+
+1/94
+_______________
+|aWa  www  www|
+|aWa  www  www|
+|aWa  www  www|
+__________     
+__________     
+|eee  eEe  eee|
+|eee  eEe  eee|
+|eee  eEe  eee|
+_______________
+
