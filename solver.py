@@ -1,11 +1,16 @@
 import json
 import copy
+import math
+import sys
 
 level = {}
-with open("samples/example_level.json") as f:
+with open(sys.argv[1]) as f:
     level = json.load(f)
 
-
+algo="astar"
+if len(sys.argv) == 3:
+    algo=sys.argv[2]
+    
 def contains(l,c):
     for i in l:
         if i["x"]==c["x"] and i["y"]==c["y"]: return True
@@ -143,9 +148,8 @@ def display(level):
     print(strr)
 
 
-# breath first search first.
-# if too slow, will move to A*
-def solve(root):
+# breath first search solver - inefficient
+def bfs_solve(root):
     toinspect = [root]
     inspected = []
     while len(toinspect) != 0:
@@ -189,10 +193,107 @@ def solve(root):
                         if not scontains(toinspect, nstate) and not scontains(inspected, nstate):
                             toinspect.append(nstate)
     return {}
-                       
+
+def distance(p1, p2):
+    return math.sqrt(((p2["x"]-p1["x"])**2.0)+((p2["y"]-p1["y"])**2.0))
+
+# append at right place according to score
+def sappend(si, l):
+    for i,se in enumerate(l):
+        if se["score"]>si["score"]:
+            l.insert(i, si)
+            return 
+    l.append(si)
+    
+# A* solver - should be more efficient
+def astar_solve(root):
+    root["steps"] = 0
+    root["distance"] = min(distance(root["chest_position"], root["fireman_position"]),
+                           distance(root["chest_position"], root["airman_position"]),
+                           distance(root["chest_position"], root["earthman_position"]),
+                           distance(root["chest_position"], root["waterman_position"]))
+    root["score"] = root["steps"]+root["distance"]
+    toinspect = [root] # should be ordered by score
+    inspected = []
+    while len(toinspect) != 0:
+        # print(str(len(toinspect))+"/"+str(len(inspected)))
+        state = toinspect.pop(0)        
+        inspected.append(state)
+        if "state" in state and state["state"] == "gameover":
+            continue
+        elif "state" in state and state["state"] == "win":
+            print("solved inspecting "+str(len(inspected))+" states")
+            print("score::"+str(state["score"]))
+            print("score of parent::"+str(state["parent"]["score"]))    
+            return state
+        for i in range(0, len(state["matrix"])):
+            for j in range(0, len(state["matrix"][i])):
+                if not (state["fireman_position"]["y"] == i and state["fireman_position"]["x"] == j) and not (state["earthman_position"]["y"] == i and state["earthman_position"]["x"] == j) and not (state["waterman_position"]["y"] == i and state["waterman_position"]["x"] == j) and not (state["airman_position"]["y"] == i and state["airman_position"]["x"] == j):
+                    if state["airman_position"]["x"] != -1:
+                        p = path(state, "airman", {"x": j, "y": i})                        
+                        nstate = runpath(state, "airman", p)
+                        nstate["parent"] = state
+                        # display(nstate)
+                        if not scontains(toinspect, nstate) and not scontains(inspected, nstate):
+                            nstate["steps"] = state["steps"]+1
+                            nstate["distance"] = min(distance(nstate["chest_position"], nstate["fireman_position"]),
+                                                   distance(nstate["chest_position"], nstate["airman_position"]),
+                                                   distance(nstate["chest_position"], nstate["earthman_position"]),
+                                                   distance(nstate["chest_position"], nstate["waterman_position"]))
+                            nstate["score"] = nstate["steps"]+nstate["distance"]
+                            sappend(nstate, toinspect)
+                    if state["waterman_position"]["x"] != -1:
+                        p = path(state, "waterman", {"x": j, "y": i})
+                        nstate = runpath(state, "waterman", p)
+                        nstate["parent"] = state             
+                        # display(nstate)
+                        if not scontains(toinspect, nstate) and not scontains(inspected, nstate):
+                            nstate["steps"] = state["steps"]+1
+                            nstate["distance"] = min(distance(nstate["chest_position"], nstate["fireman_position"]),
+                                                   distance(nstate["chest_position"], nstate["airman_position"]),
+                                                   distance(nstate["chest_position"], nstate["earthman_position"]),
+                                                   distance(nstate["chest_position"], nstate["waterman_position"]))
+                            nstate["score"] = nstate["steps"]+nstate["distance"]
+                            sappend(nstate, toinspect)                            
+                    if state["fireman_position"]["x"] != -1:
+                        p=path(state, "fireman", {"x": j, "y": i})
+                        nstate = runpath(state, "fireman", p)
+                        nstate["parent"] = state                        
+                        # display(nstate)
+                        if not scontains(toinspect, nstate) and not scontains(inspected, nstate):
+                            nstate["steps"] = state["steps"]+1
+                            nstate["distance"] = min(distance(nstate["chest_position"], nstate["fireman_position"]),
+                                                   distance(nstate["chest_position"], nstate["airman_position"]),
+                                                   distance(nstate["chest_position"], nstate["earthman_position"]),
+                                                   distance(nstate["chest_position"], nstate["waterman_position"]))
+                            nstate["score"] = nstate["steps"]+nstate["distance"]
+                            sappend(nstate, toinspect)     
+                    if state["earthman_position"]["x"] != -1:
+                        p = path(state, "earthman", {"x": j, "y": i})
+                        nstate = runpath(state, "earthman", p)
+                        nstate["parent"] = state                        
+                        # display(nstate)
+                        if not scontains(toinspect, nstate) and not scontains(inspected, nstate):
+                            nstate["steps"] = state["steps"]+1
+                            nstate["distance"] = min(distance(nstate["chest_position"], nstate["fireman_position"]),
+                                                   distance(nstate["chest_position"], nstate["airman_position"]),
+                                                   distance(nstate["chest_position"], nstate["earthman_position"]),
+                                                   distance(nstate["chest_position"], nstate["waterman_position"]))
+                            nstate["score"] = nstate["steps"]+nstate["distance"]
+                            sappend(nstate, toinspect) 
+    return {}
+
+
+
+
 display(level)
 
-solution = solve(level)
+if algo == "bfs":
+    print("solving with Breadth First Search")
+    solution = bfs_solve(level)
+else:
+    print("solving with A*")    
+    solution = astar_solve(level)
 asol = [solution]
 while "parent" in solution:
     asol.insert(0,solution["parent"])
