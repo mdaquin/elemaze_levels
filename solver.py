@@ -119,7 +119,9 @@ def display(level):
     for i in range(0, len(level["matrix"])):
         row = level["matrix"][len(level["matrix"])-1-i]
         for cell in row:
-            if 1 not in cell["ydirs"]:
+            if cell["color"] == "x":
+                strr+="     "
+            elif 1 not in cell["ydirs"]:
                 strr+='_____'
             else:
                 strr+='     '
@@ -132,14 +134,19 @@ def display(level):
                 if level["airman_position"]["y"] == len(level["matrix"])-1-i and level["airman_position"]["x"] == j: m= "A"
                 if level["earthman_position"]["y"] == len(level["matrix"])-1-i and level["earthman_position"]["x"] == j: m= "E"
                 if level["waterman_position"]["y"] == len(level["matrix"])-1-i and level["waterman_position"]["x"] == j: m= "W" 
-                if -1 not in cell['xdirs']: strr+='|'
+                if -1 not in cell['xdirs'] and m!='x': strr+='|'
                 else: strr+=' '
-                strr+=cell['color']+m+cell['color']
-                if 1 not in cell['xdirs']: strr+='|'
+                if cell["color"] == "x":
+                    strr+="   "
+                else:
+                    strr+=cell['color']+m+cell['color']
+                if 1 not in cell['xdirs'] and m!='x': strr+='|'
                 else: strr+=' '            
             strr+='\n'
         for cell in row:
-            if -1 not in cell["ydirs"]:
+            if cell['color'] == "x":
+                strr+="     "
+            elif -1 not in cell["ydirs"]:
                 strr+='_____'
             else:
                 strr+='     '
@@ -159,11 +166,11 @@ def bfs_solve(root):
         if "state" in state and state["state"] == "gameover":
             continue
         elif "state" in state and state["state"] == "win":
-            print("solved inspecting "+str(len(inspected))+" states")
+            print("solved inspecting "+str(len(inspected))+" states ("+str(len(toinspect))+")")
             return state
         for i in range(0, len(state["matrix"])):
             for j in range(0, len(state["matrix"][i])):
-                if not (state["fireman_position"]["y"] == i and state["fireman_position"]["x"] == j) and not (state["earthman_position"]["y"] == i and state["earthman_position"]["x"] == j) and not (state["waterman_position"]["y"] == i and state["waterman_position"]["x"] == j) and not (state["airman_position"]["y"] == i and state["airman_position"]["x"] == j):
+                if not (state["fireman_position"]["y"] == i and state["fireman_position"]["x"] == j) and not (state["earthman_position"]["y"] == i and state["earthman_position"]["x"] == j) and not (state["waterman_position"]["y"] == i and state["waterman_position"]["x"] == j) and not (state["airman_position"]["y"] == i and state["airman_position"]["x"] == j) and not state["matrix"][i][j] == "x":
                     if state["airman_position"]["x"] != -1:
                         p = path(state, "airman", {"x": j, "y": i})                        
                         nstate = runpath(state, "airman", p)
@@ -222,13 +229,13 @@ def astar_solve(root):
         if "state" in state and state["state"] == "gameover":
             continue
         elif "state" in state and state["state"] == "win":
-            print("solved inspecting "+str(len(inspected))+" states")
+            print("solved inspecting "+str(len(inspected))+" states ("+str(len(toinspect))+")")
             print("score::"+str(state["score"]))
             print("score of parent::"+str(state["parent"]["score"]))    
             return state
         for i in range(0, len(state["matrix"])):
             for j in range(0, len(state["matrix"][i])):
-                if not (state["fireman_position"]["y"] == i and state["fireman_position"]["x"] == j) and not (state["earthman_position"]["y"] == i and state["earthman_position"]["x"] == j) and not (state["waterman_position"]["y"] == i and state["waterman_position"]["x"] == j) and not (state["airman_position"]["y"] == i and state["airman_position"]["x"] == j):
+                if not (state["fireman_position"]["y"] == i and state["fireman_position"]["x"] == j) and not (state["earthman_position"]["y"] == i and state["earthman_position"]["x"] == j) and not (state["waterman_position"]["y"] == i and state["waterman_position"]["x"] == j) and not (state["airman_position"]["y"] == i and state["airman_position"]["x"] == j) and not state["matrix"][i][j] == "x":
                     if state["airman_position"]["x"] != -1:
                         p = path(state, "airman", {"x": j, "y": i})                        
                         nstate = runpath(state, "airman", p)
@@ -291,6 +298,8 @@ display(level)
 if algo == "bfs":
     print("solving with Breadth First Search")
     solution = bfs_solve(level)
+elif algo== "display":
+    sys.exit()
 else:
     print("solving with A*")    
     solution = astar_solve(level)
