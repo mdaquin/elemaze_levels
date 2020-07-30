@@ -2,14 +2,6 @@ import json
 import copy
 import math
 import sys
-
-level = {}
-with open(sys.argv[1]) as f:
-    level = json.load(f)
-
-algo="astar"
-if len(sys.argv) == 3:
-    algo=sys.argv[2]
     
 def contains(l,c):
     for i in l:
@@ -55,13 +47,14 @@ def path(state, guy, dest):
                 path.insert(0, {"x": item["x"], "y": item["y"]})
                 item = item["parent"]
             return path
+        # print(str(item["y"])+" "+str(item["x"]))
         for xd in state["matrix"][item["y"]][item["x"]]["xdirs"]:
             nitem = {"x": item["x"]+xd, "y":item["y"], "parent": item}
-            if not contains(toinspect, nitem) and not contains(inspected, nitem):
+            if item["x"]+xd >= 0 and item["x"]+xd<10 and not contains(toinspect, nitem) and not contains(inspected, nitem):
                 toinspect.append(nitem)
         for yd in state["matrix"][item["y"]][item["x"]]["ydirs"]:
             nitem = {"x": item["x"], "y":item["y"]+yd, "parent": item}
-            if not contains(toinspect, nitem) and not contains(inspected, nitem):
+            if item["y"]+yd >= 0 and item["y"]+yd < 6 and not contains(toinspect, nitem) and not contains(inspected, nitem):
                 toinspect.append(nitem)                
     return {}
 
@@ -292,24 +285,33 @@ def astar_solve(root):
 
 
 
-
-display(level)
-
-if algo == "bfs":
-    print("solving with Breadth First Search")
-    solution = bfs_solve(level)
-elif algo== "display":
-    sys.exit()
-else:
-    print("solving with A*")    
-    solution = astar_solve(level)
-asol = [solution]
-while "parent" in solution:
-    asol.insert(0,solution["parent"])
-    solution=solution["parent"]
-
-print("===== SOLUTION ("+str(len(asol))+" steps) =====")
+if __name__ == '__main__':
+    level = {}
+    with open(sys.argv[1]) as f:
+        level = json.load(f)
+        
+    algo="astar"
+    if len(sys.argv) == 3:
+        algo=sys.argv[2]
     
-for s in asol:
-    display(s)
+    display(level)
+
+    if algo == "bfs":
+        print("solving with Breadth First Search")
+        solution = bfs_solve(level)
+    elif algo== "display":
+        sys.exit()
+    else:
+        print("solving with A*")    
+        solution = astar_solve(level)
+
+    asol = [solution]
+    while "parent" in solution:
+        asol.insert(0,solution["parent"])
+        solution=solution["parent"]
+
+    print("===== SOLUTION ("+str(len(asol))+" steps) =====")
+    
+    for s in asol:
+        display(s)
 
