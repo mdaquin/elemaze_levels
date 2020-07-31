@@ -2,7 +2,8 @@ import json
 import copy
 import math
 import sys
-    
+import config
+
 def contains(l,c):
     for i in l:
         if i["x"]==c["x"] and i["y"]==c["y"]: return True
@@ -50,11 +51,11 @@ def path(state, guy, dest):
         # print(str(item["y"])+" "+str(item["x"]))
         for xd in state["matrix"][item["y"]][item["x"]]["xdirs"]:
             nitem = {"x": item["x"]+xd, "y":item["y"], "parent": item}
-            if item["x"]+xd >= 0 and item["x"]+xd<10 and not contains(toinspect, nitem) and not contains(inspected, nitem):
+            if item["x"]+xd >= 0 and item["x"]+xd<config.maxx and not contains(toinspect, nitem) and not contains(inspected, nitem):
                 toinspect.append(nitem)
         for yd in state["matrix"][item["y"]][item["x"]]["ydirs"]:
             nitem = {"x": item["x"], "y":item["y"]+yd, "parent": item}
-            if item["y"]+yd >= 0 and item["y"]+yd < 6 and not contains(toinspect, nitem) and not contains(inspected, nitem):
+            if item["y"]+yd >= 0 and item["y"]+yd < config.maxy and not contains(toinspect, nitem) and not contains(inspected, nitem):
                 toinspect.append(nitem)                
     return {}
 
@@ -159,7 +160,7 @@ def bfs_solve(root):
         if "state" in state and state["state"] == "gameover":
             continue
         elif "state" in state and state["state"] == "win":
-            print("solved inspecting "+str(len(inspected))+" states ("+str(len(toinspect))+")")
+            # print("solved inspecting "+str(len(inspected))+" states ("+str(len(toinspect))+")")
             return state
         for i in range(0, len(state["matrix"])):
             for j in range(0, len(state["matrix"][i])):
@@ -222,9 +223,9 @@ def astar_solve(root):
         if "state" in state and state["state"] == "gameover":
             continue
         elif "state" in state and state["state"] == "win":
-            print("solved inspecting "+str(len(inspected))+" states ("+str(len(toinspect))+")")
-            print("score::"+str(state["score"]))
-            print("score of parent::"+str(state["parent"]["score"]))    
+            #print("solved inspecting "+str(len(inspected))+" states ("+str(len(toinspect))+")")
+            #print("score::"+str(state["score"]))
+            #print("score of parent::"+str(state["parent"]["score"]))    
             return state
         for i in range(0, len(state["matrix"])):
             for j in range(0, len(state["matrix"][i])):

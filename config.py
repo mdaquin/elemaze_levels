@@ -11,16 +11,16 @@ wuse = 0.1
 p_g_guy = 0.75
 
 # chances that a cell will contain something originally
-p_g_cell = 0.3
+p_g_cell = 0.75
 
 # chances each direction has to be enabled originally
 p_g_dir = 0.5
 
 # generation size
-g_size = 30
+g_size = 20
 
 # generation number
-g_num = 50
+g_num = 100
 
 # ideal number of steps for each solution
 idealsol = 6
@@ -30,3 +30,7 @@ mut_rate = 0.3
 
 # crossover rate
 co_rate = 0.1
+
+# dimentions of the grid
+maxx = 5
+maxy = 5
