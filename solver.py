@@ -217,9 +217,12 @@ def astar_solve(root):
     root["score"] = root["steps"]+root["distance"]
     toinspect = [root] # should be ordered by score
     inspected = []
+    # TOFIX: better solution to crazy levels
     while len(toinspect) != 0:
         if len(inspected) > 1000 and len(inspected) % 100 == 0:
             print(str(len(toinspect))+"/"+str(len(inspected)))
+            display(state)
+        if len(inspected)>1500: return {}
         state = toinspect.pop(0)        
         inspected.append(state)
         if "state" in state and state["state"] == "gameover":
