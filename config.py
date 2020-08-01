@@ -8,28 +8,28 @@ wsize = 0.20
 wuse = 0.1
 
 # chances that a guy is used in first random generation
-p_g_guy = 0.75
+p_g_guy = 1.0
 
 # chances that a cell will contain something originally
-p_g_cell = 0.75
+p_g_cell = 1.0
 
 # chances each direction has to be enabled originally
 p_g_dir = 0.5
 
 # generation size
-g_size = 20
+g_size = 10
 
 # generation number
-g_num = 100
+g_num = 20
 
 # ideal number of steps for each solution
-idealsol = 6
+idealsol = 10
 
 # mutation rate
 mut_rate = 0.3
 
 # crossover rate
-co_rate = 0.1
+co_rate = 0.2
 
 # dimentions of the grid
 maxx = 5

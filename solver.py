@@ -3,6 +3,7 @@ import copy
 import math
 import sys
 import config
+from datetime import datetime
 
 def contains(l,c):
     for i in l:
@@ -217,7 +218,8 @@ def astar_solve(root):
     toinspect = [root] # should be ordered by score
     inspected = []
     while len(toinspect) != 0:
-        # print(str(len(toinspect))+"/"+str(len(inspected)))
+        if len(inspected) > 1000:
+            print(str(len(toinspect))+"/"+str(len(inspected)))
         state = toinspect.pop(0)        
         inspected.append(state)
         if "state" in state and state["state"] == "gameover":
@@ -287,6 +289,8 @@ def astar_solve(root):
 
 
 if __name__ == '__main__':
+    starttime = datetime.now()
+    print(starttime)
     level = {}
     with open(sys.argv[1]) as f:
         level = json.load(f)
@@ -316,3 +320,4 @@ if __name__ == '__main__':
     for s in asol:
         display(s)
 
+    print(datetime.now()-starttime)

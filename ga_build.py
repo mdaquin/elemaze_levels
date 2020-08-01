@@ -6,10 +6,13 @@ import json
 import math 
 import copy
 
+# TOFIX crossover
+# TODO: add in fitness something about movement freedom, e.g. the average number non-empty places reachable by the guys
 # TOFIX implement elitism... 
 # TOFIX compactness is wrong
-# TOFIX crossover
-# TOFIX mutate direction
+# TODO: cross generation stats
+# TODO: more incremental moves for guys
+# TOFIX: only put guys on places that don't kill them
 def generate_cell(matrix, i, j):
     # TOFIX: sometimes we might get 4 walls...
     cell = {}
@@ -36,8 +39,6 @@ def generate_cell(matrix, i, j):
         
 def generate_random():
     level = {}
-    # TOFIX: some guys might endup on the same place
-    # TOFIX: close of dirs towards later xs
     level["matrix"] = []
     for i in range(0,config.maxy):
         level["matrix"].append([])
@@ -174,11 +175,9 @@ def assess(g):
 
 def mutate(gg):
     # mutate position of guy
-    # TOFIX: Mutate directions
     if random.random() < 0.5:
         r = random.random()
         if r < 0.20:
-            # TOFIX: only put it where there is something
             found = False
             while not found:
                 gg["fireman_position"] = {"x": random.randint(-1,config.maxx-1), "y": random.randint(0,config.maxy-1)}
@@ -231,8 +230,37 @@ def mutate(gg):
                 gg["matrix"][i][j]["xdirs"]=[]
                 gg["matrix"][i][j]["ydirs"]=[]    
         else:
-            # change dir
-            print()
+            if gg["matrix"][i][j]["color"] != "x":
+                r = random.random()
+                if r < 0.25:
+                    if 1 in gg["matrix"][i][j]["xdirs"] and j != config.maxx-1:
+                        gg["matrix"][i][j]["xdirs"].pop(gg["matrix"][i][j]["xdirs"].index(1))
+                        gg["matrix"][i][j+1]["xdirs"].pop(gg["matrix"][i][j+1]["xdirs"].index(-1))
+                    elif j != config.maxx-1:
+                        gg["matrix"][i][j]["xdirs"].append(1)
+                        gg["matrix"][i][j+1]["xdirs"].append(-1)
+                elif r < 0.50:
+                    if -1 in gg["matrix"][i][j]["xdirs"] and j != 0:
+                        gg["matrix"][i][j]["xdirs"].pop(gg["matrix"][i][j]["xdirs"].index(-1))
+                        gg["matrix"][i][j-1]["xdirs"].pop(gg["matrix"][i][j-1]["xdirs"].index(1))
+                    elif j != 0:
+                        gg["matrix"][i][j]["xdirs"].append(-1)
+                        gg["matrix"][i][j-1]["xdirs"].append(1)
+                elif r < 0.75:
+                    if -1 in gg["matrix"][i][j]["ydirs"] and i != 0:
+                        gg["matrix"][i][j]["ydirs"].pop(gg["matrix"][i][j]["ydirs"].index(-1))
+                        gg["matrix"][i-1][j]["ydirs"].pop(gg["matrix"][i-1][j]["ydirs"].index(1))
+                    elif i != 0:
+                        gg["matrix"][i][j]["ydirs"].append(-1)
+                        gg["matrix"][i-1][j]["ydirs"].append(1)
+                else:
+                    if 1 in gg["matrix"][i][j]["ydirs"] and i != config.maxy-1:
+                        gg["matrix"][i][j]["ydirs"].pop(gg["matrix"][i][j]["ydirs"].index(1))
+                        gg["matrix"][i+1][j]["ydirs"].pop(gg["matrix"][i+1][j]["ydirs"].index(-1))
+                    elif i != config.maxy-1:
+                        gg["matrix"][i][j]["ydirs"].append(1)
+                        gg["matrix"][i+1][j]["ydirs"].append(-1)   
+
     gg["solved"] = False 
     return gg
     
