@@ -218,7 +218,7 @@ def astar_solve(root):
     toinspect = [root] # should be ordered by score
     inspected = []
     while len(toinspect) != 0:
-        if len(inspected) > 1000:
+        if len(inspected) > 1000 and len(inspected) % 100 == 0:
             print(str(len(toinspect))+"/"+str(len(inspected)))
         state = toinspect.pop(0)        
         inspected.append(state)

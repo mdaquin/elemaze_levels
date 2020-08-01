@@ -5,6 +5,7 @@ import os
 import json
 import math 
 import copy
+import sys
 
 # TOFIX crossover
 # TODO: add in fitness something about movement freedom, e.g. the average number non-empty places reachable by the guys
@@ -97,7 +98,7 @@ def generate_random():
     return level
 
 def save(g,n):
-    os.mkdir("results/g"+str(n))
+    os.mkdir(result_folder+"/g"+str(n))
     count = 0
     count_with_sol = 0
     sum_steps = 0
@@ -110,7 +111,7 @@ def save(g,n):
     avg_compactness = 0
     max_compactness = 0    
     for i, gg in enumerate(g):
-        with open("results/g"+str(n)+"/i"+str(count)+".json", "w") as f:
+        with open(result_folder+"/g"+str(n)+"/i"+str(count)+".json", "w") as f:
             json.dump(gg,f)
         count = count +1
         if gg["nb_steps"] != 0:
@@ -128,7 +129,7 @@ def save(g,n):
     if count_with_sol == 0: count_with_sol = 1
     print("=== best in generation ("+str(max_fitnessi)+")===")
     solver.display(max_fitnessgg)
-    with open("results/g"+str(n)+"/stats.json", "w") as f:
+    with open(result_folder+"/g"+str(n)+"/stats.json", "w") as f:
         json.dump({"count_with_sol": count_with_sol,
                    "avg_steps": sum_steps/count_with_sol,
                    "max_steps": max_steps,
@@ -299,6 +300,9 @@ for i in range(0, config.g_size):
 
 g = g0
 generations = 0
+
+result_folder = sys.argv[1]
+
 while generations <= config.g_num:
     print("generation "+str(generations))
     assess(g)

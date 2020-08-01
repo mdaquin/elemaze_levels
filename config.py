@@ -17,10 +17,10 @@ p_g_cell = 1.0
 p_g_dir = 0.5
 
 # generation size
-g_size = 10
+g_size = 30
 
 # generation number
-g_num = 20
+g_num = 100
 
 # ideal number of steps for each solution
 idealsol = 10
@@ -32,5 +32,5 @@ mut_rate = 0.3
 co_rate = 0.2
 
 # dimentions of the grid
-maxx = 5
-maxy = 5
+maxx = 4
+maxy = 4
