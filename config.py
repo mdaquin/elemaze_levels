@@ -23,7 +23,7 @@ g_size = 30
 g_num = 100
 
 # ideal number of steps for each solution
-idealsol = 10
+idealsol = 12
 
 # mutation rate
 mut_rate = 0.3
@@ -34,3 +34,9 @@ co_rate = 0.2
 # dimentions of the grid
 maxx = 4
 maxy = 4
+
+# show solving state after
+sssa = 1000
+
+# stop solving after
+ssa = 2000

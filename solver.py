@@ -219,10 +219,10 @@ def astar_solve(root):
     inspected = []
     # TOFIX: better solution to crazy levels
     while len(toinspect) != 0:
-        if len(inspected) > 1000 and len(inspected) % 100 == 0:
+        if len(inspected) > config.sssa and len(inspected) % 100 == 0:
             print(str(len(toinspect))+"/"+str(len(inspected)))
             display(state)
-        if len(inspected)>1500: return {}
+        if len(inspected)>config.ssa: return {}
         state = toinspect.pop(0)        
         inspected.append(state)
         if "state" in state and state["state"] == "gameover":
@@ -290,6 +290,19 @@ def astar_solve(root):
     return {}
 
 
+def getSequence(solution):
+    asol = [solution]
+    while "parent" in solution:
+        asol.insert(0,solution["parent"])
+        solution=solution["parent"]
+    strr = ""
+    for i,s in enumerate(asol):
+        if i!= 0:
+            if s["fireman_position"]["x"] != asol[i-1]["fireman_position"]["x"] or s["fireman_position"]["y"] != asol[i-1]["fireman_position"]["y"]: strr+="f"
+            if s["airman_position"]["x"] != asol[i-1]["airman_position"]["x"] or s["airman_position"]["y"] != asol[i-1]["airman_position"]["y"]: strr+="a"
+            if s["waterman_position"]["x"] != asol[i-1]["waterman_position"]["x"] or s["waterman_position"]["y"] != asol[i-1]["waterman_position"]["y"]: strr+="w"
+            if s["earthman_position"]["x"] != asol[i-1]["earthman_position"]["x"] or s["earthman_position"]["y"] != asol[i-1]["earthman_position"]["y"]: strr+="e" 
+    return strr
 
 if __name__ == '__main__':
     starttime = datetime.now()
@@ -312,15 +325,17 @@ if __name__ == '__main__':
     else:
         print("solving with A*")    
         solution = astar_solve(level)
-
+        
+    sol=solution
     asol = [solution]
     while "parent" in solution:
         asol.insert(0,solution["parent"])
         solution=solution["parent"]
 
     print("===== SOLUTION ("+str(len(asol))+" steps) =====")
-    
-    for s in asol:
-        display(s)
 
+    for i,s in enumerate(asol):
+        display(s)
+        
+    print (getSequence(sol))
     print(datetime.now()-starttime)
