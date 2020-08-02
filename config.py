@@ -32,11 +32,11 @@ mut_rate = 0.3
 co_rate = 0.2
 
 # dimentions of the grid
-maxx = 4
-maxy = 4
+maxx = 5
+maxy = 5
 
 # show solving state after
 sssa = 1000
 
 # stop solving after
-ssa = 2000
+ssa = 4000
