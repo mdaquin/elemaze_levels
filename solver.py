@@ -95,6 +95,7 @@ def runpath(state, guy, path):
                     nstate["matrix"][s["y"]][s["x"]]["color"] = "f"
                     nstate["state"] = "gameover"
                     nstate["matrix"] = []
+                    return nstate
         if guy=="fireman":
             if nstate["matrix"][s["y"]][s["x"]]["color"] == "w":
                 nstate["state"] = "gameover"
@@ -109,7 +110,8 @@ def runpath(state, guy, path):
                 if nstate["waterman_position"]["x"] == s["x"] and nstate["waterman_position"]["y"] == s["y"] :
                     nstate["matrix"][s["y"]][s["x"]]["color"] = "w"
                     nstate["state"] = "gameover"
-                    nstate["matrix"] = []                                        
+                    nstate["matrix"] = []
+                    return nstate
         if guy=="airman":
             if nstate["matrix"][s["y"]][s["x"]]["color"] == "e":
                 nstate["state"] = "gameover"
