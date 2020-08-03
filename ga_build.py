@@ -14,7 +14,7 @@ import sys
 # TODO: cross generation stats
 # TODO: more incremental moves for guys
 # TOFIX: change the color when putting a guy originally
-# TOTEST: only put guys on places that don't kill them
+# TOTEST: only put guys on places that don't kill them (appears to get stuck at generation)
 def generate_cell(matrix, i, j):
     # TOFIX: sometimes we might get 4 walls...
     cell = {}
@@ -65,7 +65,7 @@ def generate_random():
         found = False
         while not found:
             level["fireman_position"] = {"x": random.randint(0,config.maxx-1), "y": random.randint(0,config.maxy-1)}
-            if level["matrix"][level["fireman_position"]["x"]][level["fireman_position"]["y"]]["color"] != "x" and level["matrix"][level["fireman_position"]["x"]][level["fireman_position"]["y"]]["color"] != "w" and not (level["fireman_position"]["x"] == level["chest_position"]["x"] and level["fireman_position"]["y"] == level["chest_position"]["y"]):
+            if level["matrix"][level["fireman_position"]["x"]][level["fireman_position"]["y"]]["color"] != "x" and not (level["fireman_position"]["x"] == level["chest_position"]["x"] and level["fireman_position"]["y"] == level["chest_position"]["y"]): # and level["matrix"][level["fireman_position"]["x"]][level["fireman_position"]["y"]]["color"] != "w"
                 found=True
                     
     else:
@@ -74,7 +74,7 @@ def generate_random():
         found = False
         while not found:
             level["waterman_position"] = {"x": random.randint(0,config.maxx-1), "y": random.randint(0,config.maxy-1)}
-            if level["matrix"][level["waterman_position"]["x"]][level["waterman_position"]["y"]]["color"] != "x" and level["matrix"][level["waterman_position"]["x"]][level["fireman_position"]["y"]]["color"] != "a" and not (level["waterman_position"]["x"] == level["chest_position"]["x"] and level["waterman_position"]["y"] == level["chest_position"]["y"]) and not (level["waterman_position"]["x"] == level["fireman_position"]["x"] and level["waterman_position"]["y"] == level["fireman_position"]["y"]):
+            if level["matrix"][level["waterman_position"]["x"]][level["waterman_position"]["y"]]["color"] != "x" and not (level["waterman_position"]["x"] == level["chest_position"]["x"] and level["waterman_position"]["y"] == level["chest_position"]["y"]) and not (level["waterman_position"]["x"] == level["fireman_position"]["x"] and level["waterman_position"]["y"] == level["fireman_position"]["y"]): # and level["matrix"][level["waterman_position"]["x"]][level["fireman_position"]["y"]]["color"] != "a"
                 found=True
                 
     else:
@@ -83,7 +83,7 @@ def generate_random():
         found = False
         while not found:
             level["airman_position"] = {"x": random.randint(0,config.maxx-1), "y": random.randint(0,config.maxy-1)}
-            if level["matrix"][level["airman_position"]["x"]][level["airman_position"]["y"]]["color"] != "x" and level["matrix"][level["airman_position"]["x"]][level["fireman_position"]["y"]]["color"] != "e" and not (level["airman_position"]["x"] == level["chest_position"]["x"] and level["airman_position"]["y"] == level["chest_position"]["y"]) and not (level["airman_position"]["x"] == level["fireman_position"]["x"] and level["airman_position"]["y"] == level["fireman_position"]["y"]) and not (level["airman_position"]["x"] == level["waterman_position"]["x"] and level["airman_position"]["y"] == level["waterman_position"]["y"]):
+            if level["matrix"][level["airman_position"]["x"]][level["airman_position"]["y"]]["color"] != "x" and not (level["airman_position"]["x"] == level["chest_position"]["x"] and level["airman_position"]["y"] == level["chest_position"]["y"]) and not (level["airman_position"]["x"] == level["fireman_position"]["x"] and level["airman_position"]["y"] == level["fireman_position"]["y"]) and not (level["airman_position"]["x"] == level["waterman_position"]["x"] and level["airman_position"]["y"] == level["waterman_position"]["y"]): # and level["matrix"][level["airman_position"]["x"]][level["fireman_position"]["y"]]["color"] != "e"
                 found=True
                 
     else:
@@ -92,7 +92,7 @@ def generate_random():
         found = False
         while not found:
             level["earthman_position"] = {"x": random.randint(0,config.maxx-1), "y": random.randint(0,config.maxy-1)}
-            if level["matrix"][level["earthman_position"]["x"]][level["earthman_position"]["y"]]["color"] != "x" and level["matrix"][level["earthman_position"]["x"]][level["earthman_position"]["y"]]["color"] != "f" and not (level["earthman_position"]["x"] == level["chest_position"]["x"] and level["earthman_position"]["y"] == level["chest_position"]["y"]) and not (level["earthman_position"]["x"] == level["fireman_position"]["x"] and level["earthman_position"]["y"] == level["fireman_position"]["y"]) and not (level["earthman_position"]["x"] == level["waterman_position"]["x"] and level["earthman_position"]["y"] == level["waterman_position"]["y"]) and not (level["earthman_position"]["x"] == level["airman_position"]["x"] and level["earthman_position"]["y"] == level["airman_position"]["y"]):
+            if level["matrix"][level["earthman_position"]["x"]][level["earthman_position"]["y"]]["color"] != "x" and not (level["earthman_position"]["x"] == level["chest_position"]["x"] and level["earthman_position"]["y"] == level["chest_position"]["y"]) and not (level["earthman_position"]["x"] == level["fireman_position"]["x"] and level["earthman_position"]["y"] == level["fireman_position"]["y"]) and not (level["earthman_position"]["x"] == level["waterman_position"]["x"] and level["earthman_position"]["y"] == level["waterman_position"]["y"]) and not (level["earthman_position"]["x"] == level["airman_position"]["x"] and level["earthman_position"]["y"] == level["airman_position"]["y"]): # and level["matrix"][level["earthman_position"]["x"]][level["earthman_position"]["y"]]["color"] != "f"
                 found=True
     else:
         level["earthman_position"] = {"x": -1, "y": -1}
@@ -183,25 +183,25 @@ def mutate(gg):
             found = False
             while not found:
                 gg["fireman_position"] = {"x": random.randint(-1,config.maxx-1), "y": random.randint(0,config.maxy-1)}
-                if gg["matrix"][gg["fireman_position"]["x"]][gg["fireman_position"]["y"]]["color"] != "x" and gg["matrix"][gg["fireman_position"]["x"]][gg["fireman_position"]["y"]]["color"] != "w" and not (gg["fireman_position"]["x"] == gg["chest_position"]["x"] and gg["fireman_position"]["y"] == gg["chest_position"]["y"]) and not (gg["fireman_position"]["x"] == gg["earthman_position"]["x"] and gg["earthman_position"]["y"] == gg["fireman_position"]["y"]) and not (gg["fireman_position"]["x"] == gg["waterman_position"]["x"] and gg["fireman_position"]["y"] == gg["waterman_position"]["y"]) and not (gg["fireman_position"]["x"] == gg["airman_position"]["x"] and gg["fireman_position"]["y"] == gg["airman_position"]["y"]):
+                if gg["matrix"][gg["fireman_position"]["x"]][gg["fireman_position"]["y"]]["color"] != "x" and not (gg["fireman_position"]["x"] == gg["chest_position"]["x"] and gg["fireman_position"]["y"] == gg["chest_position"]["y"]) and not (gg["fireman_position"]["x"] == gg["earthman_position"]["x"] and gg["earthman_position"]["y"] == gg["fireman_position"]["y"]) and not (gg["fireman_position"]["x"] == gg["waterman_position"]["x"] and gg["fireman_position"]["y"] == gg["waterman_position"]["y"]) and not (gg["fireman_position"]["x"] == gg["airman_position"]["x"] and gg["fireman_position"]["y"] == gg["airman_position"]["y"]): # and gg["matrix"][gg["fireman_position"]["x"]][gg["fireman_position"]["y"]]["color"] != "w"
                     found=True
         elif r < 0.40:
             found=False
             while not found:
                 gg["airman_position"] = {"x": random.randint(-1,config.maxx-1), "y": random.randint(0,config.maxy-1)}
-                if gg["matrix"][gg["airman_position"]["x"]][gg["airman_position"]["y"]]["color"] != "x" and gg["matrix"][gg["airman_position"]["x"]][gg["airman_position"]["y"]]["color"] != "e" and not (gg["airman_position"]["x"] == gg["chest_position"]["x"] and gg["airman_position"]["y"] == gg["chest_position"]["y"]) and not (gg["airman_position"]["x"] == gg["earthman_position"]["x"] and gg["earthman_position"]["y"] == gg["airman_position"]["y"]) and not (gg["airman_position"]["x"] == gg["waterman_position"]["x"] and gg["airman_position"]["y"] == gg["waterman_position"]["y"]) and not (gg["airman_position"]["x"] == gg["fireman_position"]["x"] and gg["airman_position"]["y"] == gg["fireman_position"]["y"]):
+                if gg["matrix"][gg["airman_position"]["x"]][gg["airman_position"]["y"]]["color"] != "x" and not (gg["airman_position"]["x"] == gg["chest_position"]["x"] and gg["airman_position"]["y"] == gg["chest_position"]["y"]) and not (gg["airman_position"]["x"] == gg["earthman_position"]["x"] and gg["earthman_position"]["y"] == gg["airman_position"]["y"]) and not (gg["airman_position"]["x"] == gg["waterman_position"]["x"] and gg["airman_position"]["y"] == gg["waterman_position"]["y"]) and not (gg["airman_position"]["x"] == gg["fireman_position"]["x"] and gg["airman_position"]["y"] == gg["fireman_position"]["y"]): #  and gg["matrix"][gg["airman_position"]["x"]][gg["airman_position"]["y"]]["color"] != "e"
                     found = True
         elif r < 0.60:
             found = False
             while not found:                
                 gg["earthman_position"] = {"x": random.randint(-1,config.maxx-1), "y": random.randint(0,config.maxy-1)}
-                if gg["matrix"][gg["earthman_position"]["x"]][gg["earthman_position"]["y"]]["color"] != "x" and gg["matrix"][gg["earthman_position"]["x"]][gg["earthman_position"]["y"]]["color"] != "f" and not (gg["earthman_position"]["x"] == gg["chest_position"]["x"] and gg["earthman_position"]["y"] == gg["chest_position"]["y"]) and not (gg["earthman_position"]["x"] == gg["airman_position"]["x"] and gg["earthman_position"]["y"] == gg["airman_position"]["y"]) and not (gg["earthman_position"]["x"] == gg["waterman_position"]["x"] and gg["earthman_position"]["y"] == gg["waterman_position"]["y"]) and not (gg["earthman_position"]["x"] == gg["fireman_position"]["x"] and gg["earthman_position"]["y"] == gg["fireman_position"]["y"]):
+                if gg["matrix"][gg["earthman_position"]["x"]][gg["earthman_position"]["y"]]["color"] != "x" and not (gg["earthman_position"]["x"] == gg["chest_position"]["x"] and gg["earthman_position"]["y"] == gg["chest_position"]["y"]) and not (gg["earthman_position"]["x"] == gg["airman_position"]["x"] and gg["earthman_position"]["y"] == gg["airman_position"]["y"]) and not (gg["earthman_position"]["x"] == gg["waterman_position"]["x"] and gg["earthman_position"]["y"] == gg["waterman_position"]["y"]) and not (gg["earthman_position"]["x"] == gg["fireman_position"]["x"] and gg["earthman_position"]["y"] == gg["fireman_position"]["y"]): # and gg["matrix"][gg["earthman_position"]["x"]][gg["earthman_position"]["y"]]["color"] != "f"
                     found=True
         elif r < 0.80:
             found = False
             while not found:
                 gg["waterman_position"] = {"x": random.randint(-1,config.maxx-1), "y": random.randint(0,config.maxy-1)}
-                if gg["matrix"][gg["waterman_position"]["x"]][gg["waterman_position"]["y"]]["color"] != "x" and gg["matrix"][gg["waterman_position"]["x"]][gg["waterman_position"]["y"]]["color"] != "a" and not (gg["waterman_position"]["x"] == gg["chest_position"]["x"] and gg["waterman_position"]["y"] == gg["chest_position"]["y"]) and not (gg["waterman_position"]["x"] == gg["airman_position"]["x"] and gg["waterman_position"]["y"] == gg["airman_position"]["y"]) and not (gg["waterman_position"]["x"] == gg["earthman_position"]["x"] and gg["waterman_position"]["y"] == gg["earthman_position"]["y"]) and not (gg["waterman_position"]["x"] == gg["fireman_position"]["x"] and gg["waterman_position"]["y"] == gg["fireman_position"]["y"]):
+                if gg["matrix"][gg["waterman_position"]["x"]][gg["waterman_position"]["y"]]["color"] != "x" and not (gg["waterman_position"]["x"] == gg["chest_position"]["x"] and gg["waterman_position"]["y"] == gg["chest_position"]["y"]) and not (gg["waterman_position"]["x"] == gg["airman_position"]["x"] and gg["waterman_position"]["y"] == gg["airman_position"]["y"]) and not (gg["waterman_position"]["x"] == gg["earthman_position"]["x"] and gg["waterman_position"]["y"] == gg["earthman_position"]["y"]) and not (gg["waterman_position"]["x"] == gg["fireman_position"]["x"] and gg["waterman_position"]["y"] == gg["fireman_position"]["y"]): # and gg["matrix"][gg["waterman_position"]["x"]][gg["waterman_position"]["y"]]["color"] != "a"
                     found = True
         else:
             found = False
