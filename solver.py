@@ -61,6 +61,8 @@ def path(state, guy, dest):
     return {}
 
 
+# TOTEST: if change the color to a color that's
+# changed by the guy which is there, change back
 def runpath(state, guy, path):
     nstate = copy.deepcopy(state)
     for s in path:
@@ -75,7 +77,9 @@ def runpath(state, guy, path):
                 if nstate["fireman_position"]["x"] == s["x"] and nstate["fireman_position"]["y"] == s["y"]:
                     nstate["state"] = "gameover"
                     nstate["matrix"] = []
-                    return nstate                                    
+                    return nstate
+                if nstate["earthman_position"]["x"] == s["x"] and nstate["earthman_position"]["y"] == s["y"] :
+                    nstate["matrix"][s["y"]][s["x"]]["color"] = "e"          
         if guy=="earthman":
             if nstate["matrix"][s["y"]][s["x"]]["color"] == "f":
                 nstate["state"] = "gameover"
@@ -86,7 +90,11 @@ def runpath(state, guy, path):
                 if nstate["airman_position"]["x"] == s["x"] and nstate["airman_position"]["y"] == s["y"]:
                     nstate["state"] = "gameover"
                     nstate["matrix"] = []
-                    return nstate                                    
+                    return nstate
+                if nstate["fireman_position"]["x"] == s["x"] and nstate["fireman_position"]["y"] == s["y"] :
+                    nstate["matrix"][s["y"]][s["x"]]["color"] = "f"
+                    nstate["state"] = "gameover"
+                    nstate["matrix"] = []
         if guy=="fireman":
             if nstate["matrix"][s["y"]][s["x"]]["color"] == "w":
                 nstate["state"] = "gameover"
@@ -97,7 +105,11 @@ def runpath(state, guy, path):
                 if nstate["earthman_position"]["x"] == s["x"] and nstate["earthman_position"]["y"] == s["y"]:
                     nstate["state"] = "gameover"
                     nstate["matrix"] = []
-                    return nstate                    
+                    return nstate
+                if nstate["waterman_position"]["x"] == s["x"] and nstate["waterman_position"]["y"] == s["y"] :
+                    nstate["matrix"][s["y"]][s["x"]]["color"] = "w"
+                    nstate["state"] = "gameover"
+                    nstate["matrix"] = []                                        
         if guy=="airman":
             if nstate["matrix"][s["y"]][s["x"]]["color"] == "e":
                 nstate["state"] = "gameover"
