@@ -11,10 +11,8 @@ import sys
 # TODO: add in fitness something about movement freedom, e.g. the average number non-empty places reachable by the guys
 # TOFIX implement elitism... 
 # TOFIX compactness is wrong
-# TODO: cross generation stats
 # TODO: more incremental moves for guys
-# TOFIX: change the color when putting a guy originally
-# TOTEST: only put guys on places that don't kill them (appears to get stuck at generation)
+# TOTEST: if guy placed on cell that it would change the colour of, change the colour on generation
 def generate_cell(matrix, i, j):
     # TOFIX: sometimes we might get 4 walls...
     cell = {}
@@ -96,6 +94,16 @@ def generate_random():
                 found=True
     else:
         level["earthman_position"] = {"x": -1, "y": -1}
+    
+    # making sure things are not initially in the wrong place
+    if level["fireman_position"]["x"] != -1 and (level["matrix"][level["fireman_position"]["y"]][level["fireman_position"]["x"]]["color"] == "w" or level["matrix"][level["fireman_position"]["y"]][level["fireman_position"]["x"]]["color"] == "e"):
+        level["matrix"][level["fireman_position"]["y"]][level["fireman_position"]["x"]]["color"] = "f"
+    if level["earthman_position"]["x"] != -1 and (level["matrix"][level["earthman_position"]["y"]][level["earthman_position"]["x"]]["color"] == "f" or level["matrix"][level["earthman_position"]["y"]][level["earthman_position"]["x"]]["color"] == "w"):    
+        level["matrix"][level["earthman_position"]["y"]][level["earthman_position"]["x"]]["color"] = "e"
+    if level["waterman_position"]["x"] != -1 and (level["matrix"][level["waterman_position"]["y"]][level["waterman_position"]["x"]]["color"] == "a" or level["matrix"][level["waterman_position"]["y"]][level["waterman_position"]["x"]]["color"] == "f"):    
+        level["matrix"][level["waterman_position"]["y"]][level["waterman_position"]["x"]]["color"] = "w"
+    if level["airman_position"]["x"] != -1 and level["matrix"][level["airman_position"]["y"]][level["airman_position"]["x"]]["color"] == "e":    
+        level["matrix"][level["airman_position"]["y"]][level["airman_position"]["x"]]["color"] = "a"
     return level
 
 def save(g,n):
