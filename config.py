@@ -39,8 +39,8 @@ maxy = 5
 sssa = 1000
 
 # stop solving after
-ssa = 2000
+ssa = 4000
 
 # elitism level
-el_rate = 0.2;
+el_rate = 0.2
 
