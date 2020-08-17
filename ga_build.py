@@ -9,7 +9,7 @@ import sys
 
 # TOFIX crossover
 # TODO: add in fitness something about movement freedom, e.g. the average number non-empty places reachable by the guys
-# TOFIX implement elitism... 
+# TOTEST: implement elitism... 
 # TOFIX compactness is wrong
 # TODO: more incremental moves for guys
 # TOTEST: if guy placed on cell that it would change the colour of, change the colour on generation
@@ -272,12 +272,28 @@ def mutate(gg):
                         gg["matrix"][i+1][j]["ydirs"].append(-1)   
 
     gg["solved"] = False 
+
+    # making sure things are not initially in the wrong place
+    if gg["fireman_position"]["x"] != -1 and (gg["matrix"][gg["fireman_position"]["y"]][gg["fireman_position"]["x"]]["color"] == "w" or gg["matrix"][gg["fireman_position"]["y"]][gg["fireman_position"]["x"]]["color"] == "e"):
+        gg["matrix"][gg["fireman_position"]["y"]][gg["fireman_position"]["x"]]["color"] = "f"
+    if gg["earthman_position"]["x"] != -1 and (gg["matrix"][gg["earthman_position"]["y"]][gg["earthman_position"]["x"]]["color"] == "f" or gg["matrix"][gg["earthman_position"]["y"]][gg["earthman_position"]["x"]]["color"] == "w"):    
+        gg["matrix"][gg["earthman_position"]["y"]][gg["earthman_position"]["x"]]["color"] = "e"
+    if gg["waterman_position"]["x"] != -1 and (gg["matrix"][gg["waterman_position"]["y"]][gg["waterman_position"]["x"]]["color"] == "a" or gg["matrix"][gg["waterman_position"]["y"]][gg["waterman_position"]["x"]]["color"] == "f"):    
+        gg["matrix"][gg["waterman_position"]["y"]][gg["waterman_position"]["x"]]["color"] = "w"
+    if gg["airman_position"]["x"] != -1 and gg["matrix"][gg["airman_position"]["y"]][gg["airman_position"]["x"]]["color"] == "e":    
+        gg["matrix"][gg["airman_position"]["y"]][gg["airman_position"]["x"]]["color"] = "a"
     return gg
     
 def newgeneration(g):
     sumfitness = 0.0
     fitnesses = []
     ng = []
+    # select from elitism
+    nbelsel = int(math.floor(float(config.g_size)*config.el_rate))
+    og = sorted(g, key=lambda k: k['fitness'], reverse=True) 
+    for i in range(0,nbelsel):
+        print("Elitism selection with fitness: "+str(og[i]["fitness"]))
+        ng.append(copy.deepcopy(og[i]))
     for gg in g:
         f = gg["fitness"]
         sumfitness = sumfitness + f
@@ -285,7 +301,7 @@ def newgeneration(g):
     print("sum fitnesses="+str(sumfitness))
     for i,f in enumerate(fitnesses):
         fitnesses[i] = f/sumfitness
-    for i in range(0, config.g_size):
+    for i in range(0, config.g_size-nbelsel):
         cumul = 0
         r = random.random()
         selected = 0
@@ -298,7 +314,6 @@ def newgeneration(g):
     for i,gg in enumerate(ng):
         if random.random() < config.mut_rate:
             ng[i] = mutate(gg)
-    # TOFIX: add crossover
     return ng
 
 g0 = []
