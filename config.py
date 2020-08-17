@@ -40,3 +40,6 @@ sssa = 1000
 
 # stop solving after
 ssa = 2000
+
+# elitism level
+el_rate = 0.2;
