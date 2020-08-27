@@ -20,7 +20,7 @@ p_g_dir = 0.5
 g_size = 30
 
 # generation number
-g_num = 100
+g_num = 150
 
 # ideal number of steps for each solution
 idealsol = 12
