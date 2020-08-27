@@ -23,7 +23,7 @@ g_size = 30
 g_num = 100
 
 # ideal number of steps for each solution
-idealsol = 12
+idealsol = 15
 
 # mutation rate
 mut_rate = 0.3
